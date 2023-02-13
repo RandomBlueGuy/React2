@@ -1,22 +1,27 @@
-import logo from './logo.svg';
+import data from './assets/data.json'
 import './App.css';
+import CharacterCard from './components/CharacterCard';
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <h1>Rick and Morty Characters</h1>
+      <h2>Character card:</h2>
+      <div className="container">
+        {data.map(element => {
+
+          return (<CharacterCard 
+            name = {element.name}
+            image = {element.image}
+            lastLocation = {element.location.name}
+            episode = {element.episode}
+            status = {element.status}
+            species = {element.species}
+          />)
+        })}
+      </div>
       </header>
     </div>
   );
